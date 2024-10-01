@@ -152,7 +152,8 @@ You may not need to override the `__str__` method in child classes. You certainl
 | **Total**                          | **100**|
 
 ## Outside Resources Used
-None as of 10/1/24
+geeksforgeeks.org/enumerate-in-python/
+    Learned how to use enumerate rather than looping over range(len(<list>))
 
 
 ## Known Problems, Issues, And/Or Errors in the Program

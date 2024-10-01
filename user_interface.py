@@ -1,28 +1,27 @@
 """User Interface Class File"""
 
-#Walter Podewil
-#CIS 226
-#October 1, 2024
+# Walter Podewil
+# CIS 226
+# October 1, 2024
 
-#System Imports
+# System Imports
 
-#First Party Imports
+# First Party Imports
 from droid_collection import DroidCollection
 
-#Third Party Imports
+# Third Party Imports
 
-class UserInterface():
+
+class UserInterface:
     """User Interface Class"""
 
-    MAIN_MENU = ("Type the number of your choice:\n"
-                 "1. Add a New Droid\n"
-                 "2. Print Droid List")
+    MAIN_MENU = (
+        "Type the number of your selection:\n"
+        "1. Add New Droid\n"
+        "2. Print Collection"
+    )
 
-    DROID_TYPE_MENU = ("What type of Droid would you like to create?\n"
-                       "1. Protocol\n"
-                       "2. Utility\n"
-                       "3. Janitor\n"
-                       "4. Astromech")
+    DROID_TYPE_LIST = ["Protocol", "Utility", "Janitor", "Astromech"]
 
     def print_main_menu(self) -> str:
         """Prints Main Menu"""
@@ -32,11 +31,10 @@ class UserInterface():
 
     def print_droid_type_menu(self) -> str:
         """Prints Droid Type Menu"""
-        print(self.DROID_TYPE_MENU)
+        for index in range(len(self.DROID_TYPE_LIST)):
+            print(f"{index:<3} {self.DROID_TYPE_LIST[index]}")
         user_input = input(">")
         return user_input
 
     def print_collection(self, collection: DroidCollection) -> None:
         """Prints Droid Collection"""
-
-

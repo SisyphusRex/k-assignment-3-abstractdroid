@@ -1,18 +1,20 @@
 """DroidCollection Class File"""
 
-#Walter Podewil
-#CIS 226
-#October 1, 2024
+# Walter Podewil
+# CIS 226
+# October 1, 2024
 
-#System Imports
+# System Imports
 
-#First Party Imports
+# First Party Imports
 
-#Third Party Imports
+# Third Party Imports
 
-class DroidCollection():
+
+class DroidCollection:
     """Collection of Created droids"""
-    def __init__(self, collection = None):
+
+    def __init__(self, collection=None):
         """Constructor"""
         self.collection = collection or []
 
