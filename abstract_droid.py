@@ -1,4 +1,9 @@
 """Abstract Droid module"""
+
+#Walter Podewil
+#CIS 226
+#October 1, 2024
+
 from abc import ABC, abstractmethod
 
 

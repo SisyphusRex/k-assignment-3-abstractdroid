@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 """Main entry point definition"""
+
+#Walter Podewil
+#CIS 226
+#October 1, 2024
+
 # System Imports
 import sys
 
