@@ -155,6 +155,12 @@ You may not need to override the `__str__` method in child classes. You certainl
 geeksforgeeks.org/enumerate-in-python/
     Learned how to use enumerate rather than looping over range(len(<list>))
 
+https://stackoverflow.com/questions/3207219/how-do-i-list-all-files-of-a-directory
+    Learned how to find files in a directory
+
+https://stackoverflow.com/questions/72063145/how-can-i-loop-through-all-the-py-files-in-my-current-directory-import-a-vari
+    iterate through directory and import
+
 
 ## Known Problems, Issues, And/Or Errors in the Program
 None as of 10/1/24
