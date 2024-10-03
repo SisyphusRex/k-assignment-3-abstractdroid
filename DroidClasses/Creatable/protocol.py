@@ -29,6 +29,7 @@ class Protocol(Droid):
 
     def __str__(self):
         """String method"""
+        return f"{super().__str__()} {self.number_of_languages:}*languages"
 
     def calculate_total_cost(self):
         """Calculate total cost based off of languages and droid type"""

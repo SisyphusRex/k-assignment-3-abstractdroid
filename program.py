@@ -12,8 +12,16 @@ from user_interface import UserInterface
 from droid_collection import DroidCollection
 from droid_master import DroidMaster
 from DroidClasses.Creatable.protocol import Protocol
+from DroidClasses.ParentOnly.droid import COLOR_COST, MATERIAL_COST
 
 # Third Party Imports
+
+
+def dict_to_list(input_dict: dict) -> list:
+    my_list = []
+    for key in input_dict:
+        my_list.append(key)
+    return my_list
 
 
 def main(*args):
@@ -22,13 +30,14 @@ def main(*args):
     # I use a list here so that I can handle more droid types in the future
     # Ideally, there would be a function that creates the list of available droid types
     DROID_DIRECTORY = "DroidClasses\Creatable"
-    MATERIAL_MENU = ["Steel", "Aluminum"]
-    COLOR_MENU = ["Blue", "Red"]
 
     my_master = DroidMaster()
     my_master.find_droid_types(DROID_DIRECTORY)
     my_ui = UserInterface()
     my_collection = DroidCollection()
+    color_list = dict_to_list(COLOR_COST)
+    material_list = dict_to_list(MATERIAL_COST)
+
     choice = my_ui.print_main_menu()
     match int(choice):
         case 0:
@@ -43,12 +52,12 @@ def main(*args):
                     ...
                 case 2:
                     # protocol
-                    material = my_ui.print_choice_menu(MATERIAL_MENU, "Material")
-                    color = my_ui.print_choice_menu(COLOR_MENU, "Color")
-                    number_of_languages = float(my_ui.get_quantity("Languages"))
+                    material = my_ui.print_choice_menu(material_list, "Material")
+                    color = my_ui.print_choice_menu(color_list, "Color")
+                    number_of_languages = int(my_ui.get_quantity("Languages"))
                     user_protocol = Protocol(material, color, number_of_languages)
                     user_protocol.calculate_total_cost()
-                    print(user_protocol.total_cost)
+                    print(user_protocol)
                 case 3:
                     # utility
                     ...
