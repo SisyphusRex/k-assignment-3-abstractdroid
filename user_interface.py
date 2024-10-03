@@ -36,3 +36,18 @@ class UserInterface:
 
     def print_collection(self, collection: DroidCollection) -> None:
         """Prints Droid Collection"""
+
+    def print_choice_menu(self, input_list: list, input_option: str) -> str:
+        """Get Material For Droid method"""
+        print(f"Type {input_option} Selection Number:")
+        for index, item in enumerate(input_list):
+            print(index, item)
+        user_input_index = int(input(">"))
+        user_input = input_list[user_input_index]
+        return user_input
+
+    def get_quantity(self, option: str) -> str:
+        """gets number of option"""
+        print(f"How many {option} do you want?")
+        user_input = input(">")
+        return user_input
