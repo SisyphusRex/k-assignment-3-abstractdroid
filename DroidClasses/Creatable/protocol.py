@@ -32,9 +32,9 @@ class Protocol(Droid):
 
     def calculate_total_cost(self):
         """Calculate total cost based off of languages and droid type"""
-
+        super().calculate_total_cost()
         self.total_cost = (
-            self.DROID_BASE_COST
-            + (self.number_of_languages * self.COST_PER_LANGUAGE)
+            self.total_cost
             + self.DROID_MODEL_SURCHARGE
+            + self.COST_PER_LANGUAGE * self.number_of_languages
         )
