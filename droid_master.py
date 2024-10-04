@@ -8,6 +8,7 @@
 import os
 import pathlib
 import importlib.util
+import importlib
 
 # First Party Imports
 
@@ -20,9 +21,10 @@ class DroidMaster:
     def __init__(self):
         self.droid_type_names = []
 
-    def find_droid_types(self, path: str) -> None:
+    def find_droid_types(self, input_path: str) -> list:
         """Finds droid files and adds droid names to list"""
-        for source_file in pathlib.Path(path).glob("*.py"):
+        droid_type_names = []
+        for source_file in pathlib.Path(input_path).glob("*.py"):
             # .stem returns filenam without file extension
             name = source_file.stem
             # .spec_from_file_location creates a modulespec object of the file
@@ -32,7 +34,17 @@ class DroidMaster:
             # .loader.exec_module executes the module in own namespace
             spec.loader.exec_module(mod)
             if hasattr(mod, "DROID_TYPE_NAME"):
-                self.__add_droid_name(getattr(mod, "DROID_TYPE_NAME"))
+                droid_type_names.append(getattr(mod, "DROID_TYPE_NAME"))
+            return droid_type_names
 
-    def __add_droid_name(self, name: str) -> None:
-        self.droid_type_names.append(name)
+    def format_name_to_path(self, droid_name, droid_directory_path):
+        file_name = droid_name.lower()
+        path_name = droid_directory_path("\\", ".")
+        return f"{path_name}{file_name}"
+
+    def dict_to_list(self, input_dict: dict) -> list:
+        """Converts dict to list of keys"""
+        my_list = []
+        for key in input_dict:
+            my_list.append(key)
+        return my_list
