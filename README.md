@@ -161,6 +161,9 @@ https://stackoverflow.com/questions/3207219/how-do-i-list-all-files-of-a-directo
 https://stackoverflow.com/questions/72063145/how-can-i-loop-through-all-the-py-files-in-my-current-directory-import-a-vari
     iterate through directory and import
 
+https://stackoverflow.com/questions/8718885/importing-module-from-string-variable-using-import-gives-different-results
+	import module based on string
+
 
 ## Known Problems, Issues, And/Or Errors in the Program
 None as of 10/1/24
