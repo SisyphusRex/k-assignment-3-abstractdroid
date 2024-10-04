@@ -19,8 +19,7 @@ DROID_TYPE_NAME = "Protocol"
 class Protocol(Droid):
     """Protocol Droid Parent Class"""
 
-    COST_PER_LANGUAGE: float = 1.00
-    DROID_MODEL_SURCHARGE: float = 2.00
+    PROTOCOL_MODEL_SURCHARGE: float = 2.00
 
     def __init__(self, material: str, color: str, number_of_languages: int):
         """Constructor and Attributes"""
@@ -29,13 +28,18 @@ class Protocol(Droid):
 
     def __str__(self):
         """String method"""
-        return f"{super().__str__()} {self.number_of_languages:}*languages"
+        return f"{super().__str__()} {self.number_of_languages:<5}"
 
+    @override
     def calculate_total_cost(self):
         """Calculate total cost based off of languages and droid type"""
         super().calculate_total_cost()
         self.total_cost = (
             self.total_cost
-            + self.DROID_MODEL_SURCHARGE
-            + self.COST_PER_LANGUAGE * self.number_of_languages
+            + self.PROTOCOL_MODEL_SURCHARGE
+            + self.QUANTITY_OPTION_COST * self._number_of_quantity_options
         )
+
+    @property
+    def _number_of_quantity_options(self):
+        return self.number_of_languages

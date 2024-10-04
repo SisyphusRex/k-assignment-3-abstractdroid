@@ -12,12 +12,13 @@ from user_interface import UserInterface
 from droid_collection import DroidCollection
 from droid_master import DroidMaster
 from DroidClasses.Creatable.protocol import Protocol
-from DroidClasses.ParentOnly.droid import COLOR_COST, MATERIAL_COST
+from DroidClasses.ParentOnly.droid import Droid
 
 # Third Party Imports
 
 
 def dict_to_list(input_dict: dict) -> list:
+    """Converts dict to list of keys"""
     my_list = []
     for key in input_dict:
         my_list.append(key)
@@ -35,8 +36,8 @@ def main(*args):
     my_master.find_droid_types(DROID_DIRECTORY)
     my_ui = UserInterface()
     my_collection = DroidCollection()
-    color_list = dict_to_list(COLOR_COST)
-    material_list = dict_to_list(MATERIAL_COST)
+    color_list = dict_to_list(Droid.COLOR_COST)
+    material_list = dict_to_list(Droid.MATERIAL_COST)
 
     choice = my_ui.print_main_menu()
     match int(choice):

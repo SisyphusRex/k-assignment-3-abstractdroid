@@ -15,19 +15,21 @@ from DroidClasses.ParentOnly.abstract_droid import AbstractDroid
 
 
 # File Constants to keep track of options prices
-COLOR_COST: dict = {"Red": 1.00, "Yellow": 1.50, "Blue": 2.00, "Green": 2.50}
-MATERIAL_COST: dict = {
-    "Aluminum": 1.25,
-    "Steel": 1.50,
-    "Titanium": 1.75,
-    "Carbon Fiber": 2.00,
-}
 
 
 class Droid(AbstractDroid, ABC):
     """Parent class to Protocol and Utility"""
 
+    COLOR_COST: dict = {"Red": 1.00, "Yellow": 1.50, "Blue": 2.00, "Green": 2.50}
+    MATERIAL_COST: dict = {
+        "Aluminum": 1.25,
+        "Steel": 1.50,
+        "Titanium": 1.75,
+        "Carbon Fiber": 2.00,
+    }
     DROID_BASE_COST: float = 10.00
+    OPTION_COST: float = 1.00
+    QUANTITY_OPTION_COST: float = 0.75
 
     def __init__(self, material: str, color: str):
         """Constructor"""
@@ -37,18 +39,31 @@ class Droid(AbstractDroid, ABC):
 
     def __str__(self) -> str:
         """String method"""
-        return f"{self.format_price(self.total_cost)} {self._get_class_name()} {self.material} {self.color}"
+        return f"{self.formatted_price:<10} {self._class_name:<10} {self.material:<10} {self.color:<10}"
 
     def calculate_total_cost(self):
         """Calculates Total Cost"""
-        self.total_cost = self.DROID_BASE_COST
+        self.total_cost = self.DROID_BASE_COST + self._material_cost + self._color_cost
 
-    def format_price(self, number: float) -> float:
+    @property
+    def formatted_price(self) -> float:
         """Format price to 2 decimal places"""
-        return f"${number:.2f}"
+        return f"${self.total_cost:.2f}"
 
-    def _get_class_name(self) -> str:
+    @property
+    def _class_name(self) -> str:
+        """Takes class name out of type() call"""
         my_str = str(type(self))
         my_list = my_str.split(".")
         name = my_list[-1].strip("'>")
         return name
+
+    @property
+    def _material_cost(self) -> float:
+        """Gets Material cost value"""
+        return self.MATERIAL_COST[self.material]
+
+    @property
+    def _color_cost(self) -> float:
+        """Gets Color Cost value"""
+        return self.COLOR_COST[self.color]

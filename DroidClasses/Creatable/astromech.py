@@ -26,21 +26,43 @@ class Astromech(Utility):
 
     def __init__(
         self,
-        str1: str,
-        str2: str,
-        bool1: bool,
-        bool2: bool,
-        bool3: bool,
-        bool4: bool,
-        int1: int,
+        material: str,
+        color: str,
+        toolbox: bool,
+        computer_connection: bool,
+        scanner: bool,
+        navigation: bool,
+        number_of_ships: int,
     ):
         """Constructor"""
-        super().__init__(str1, str2, bool1, bool2, bool3)
-        self.bool4 = bool4
-        self.int1 = int1
+        super().__init__(material, color, toolbox, computer_connection, scanner)
+        self.navigation = navigation
+        self.number_of_ships = number_of_ships
 
     def __str__(self):
         """String method"""
+        return f"{super().__str__()} {self.navigation} {self.number_of_ships}"
 
     def calculate_total_cost(self):
         """calculate total cost method"""
+        super().calculate_total_cost()
+        self.total_cost = (
+            self.total_cost
+            + self._number_of_options * self.OPTION_COST
+            + self._number_of_quantity_options * self.QUANTITY_OPTION_COST
+        )
+
+    @property
+    @override
+    def _number_of_options(self):
+        """Counts options, in this case navigation"""
+        count: int = 0
+        if self.navigation:
+            count += 1
+        return count
+
+    @property
+    @override
+    def _number_of_quantity_options(self):
+        """Calculates number of quantity options from ships"""
+        return self.number_of_ships
