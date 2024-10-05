@@ -9,6 +9,7 @@ import os
 import pathlib
 import importlib.util
 import importlib
+import inspect
 
 # First Party Imports
 
@@ -35,12 +36,12 @@ class DroidMaster:
             spec.loader.exec_module(mod)
             if hasattr(mod, "DROID_TYPE_NAME"):
                 droid_type_names.append(getattr(mod, "DROID_TYPE_NAME"))
-            return droid_type_names
+        return droid_type_names
 
     def format_name_to_path(self, droid_name, droid_directory_path):
         file_name = droid_name.lower()
-        path_name = droid_directory_path("\\", ".")
-        return f"{path_name}{file_name}"
+        path_name = droid_directory_path.replace("\\", ".")
+        return f"{path_name}.{file_name}"
 
     def dict_to_list(self, input_dict: dict) -> list:
         """Converts dict to list of keys"""
@@ -48,3 +49,25 @@ class DroidMaster:
         for key in input_dict:
             my_list.append(key)
         return my_list
+
+    def get_params(self, droid_object: object) -> dict:
+        """This method accesses the parameters of the class constructor"""
+        droid_constructor_parameters = {}
+        constructor_parameters = inspect.signature(droid_object.__init__).parameters
+        for name, parameters in constructor_parameters.items():
+            if name != "self":
+                my_str = str(parameters)
+                param_name, param_type = my_str.split(": ")
+                droid_constructor_parameters.update({param_name: param_type})
+        print(droid_constructor_parameters)
+        return droid_constructor_parameters
+
+    def import_module_and_create_class_object(
+        self, droid_name: str, droid_directory_path: str
+    ) -> object:
+        """This method imports the module and creates an object of the class"""
+        droid_module = importlib.import_module(
+            self.format_name_to_path(droid_name, droid_directory_path)
+        )
+        class_object = getattr(droid_module, droid_name.capitalize())
+        return class_object

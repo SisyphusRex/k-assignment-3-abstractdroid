@@ -15,6 +15,8 @@ from droid_collection import DroidCollection
 class UserInterface:
     """User Interface Class"""
 
+    # Only returns strings!!!
+
     # Main menu and Droid Type are lists because I want the ability to handle more options in the future
     MAIN_MENU = ["Add New Droid", "Print Collection", "Exit"]
 
@@ -36,6 +38,8 @@ class UserInterface:
 
     def print_collection(self, collection: DroidCollection) -> None:
         """Prints Droid Collection"""
+        for droid in collection.collection:
+            print(droid)
 
     def print_choice_menu(self, input_list: list, input_option: str) -> str:
         """Get Material For Droid method"""
@@ -49,5 +53,10 @@ class UserInterface:
     def get_quantity(self, option: str) -> str:
         """gets number of option"""
         print(f"How many {option} do you want?")
+        user_input = input(">")
+        return user_input
+
+    def get_yes_or_no(self, option: str) -> str:
+        print(f"Add {option} to the droid?")
         user_input = input(">")
         return user_input

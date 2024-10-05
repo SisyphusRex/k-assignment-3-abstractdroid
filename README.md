@@ -164,6 +164,9 @@ https://stackoverflow.com/questions/72063145/how-can-i-loop-through-all-the-py-f
 https://stackoverflow.com/questions/8718885/importing-module-from-string-variable-using-import-gives-different-results
 	import module based on string
 
+inspect module
+
+capitalize() method
 
 ## Known Problems, Issues, And/Or Errors in the Program
 None as of 10/1/24
