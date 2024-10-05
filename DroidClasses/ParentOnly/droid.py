@@ -39,7 +39,7 @@ class Droid(AbstractDroid, ABC):
 
     def __str__(self) -> str:
         """String method"""
-        return f"{self.formatted_price:<10} {self._class_name:<10} {self.material:<10} {self.color:<10}"
+        return f"{self._class_name:<15}\n Price: {self.formatted_price:<10} Material: {self.material:<15} Color: {self.color:<10}"
 
     def calculate_total_cost(self):
         """Calculates Total Cost"""

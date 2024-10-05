@@ -36,7 +36,7 @@ def main(*args):
     while int(main_choice) < 3:
         match int(main_choice):
             case 0:
-                # create a droid
+                # create a droid option
                 choice = my_ui.print_droid_type_menu(list_of_droid_types)
                 droid_name = list_of_droid_types[int(choice)]
                 droid_object = my_master.import_module_and_create_class_object(
@@ -45,12 +45,13 @@ def main(*args):
                 parameter_dict = my_master.get_params(droid_object)
                 my_dict = {}
                 for key, value in parameter_dict.items():
+                    # displays menu depending on type of parameter
                     if value == "bool":
                         # handle yes no option
                         choice = my_ui.get_yes_or_no(key)
-                        if choice == "0":
-                            my_dict.update({key: False})
                         if choice == "1":
+                            my_dict.update({key: False})
+                        if choice == "0":
                             my_dict.update({key: True})
                     if value == "int":
                         # hadle quanity options
@@ -64,6 +65,8 @@ def main(*args):
                         if key == "material":
                             choice = my_ui.print_choice_menu(material_list, key)
                             my_dict.update({key: choice})
+
+                # here, we use the dictionary of parameters to instantiate a droid
                 created_droid = droid_object(**my_dict)
                 created_droid.calculate_total_cost()
                 my_collection.add(created_droid)

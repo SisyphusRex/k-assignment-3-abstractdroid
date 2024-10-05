@@ -164,10 +164,14 @@ https://stackoverflow.com/questions/72063145/how-can-i-loop-through-all-the-py-f
 https://stackoverflow.com/questions/8718885/importing-module-from-string-variable-using-import-gives-different-results
 	import module based on string
 
-inspect module
+https://docs.python.org/3/library/inspect.html
+    inspect module
 
-capitalize() method
+https://www.geeksforgeeks.org/string-capitalize-python/
+    capitalize() method
 
 ## Known Problems, Issues, And/Or Errors in the Program
 None as of 10/1/24
+
+10/5/2024: Need to reformat __str__ methods in droid and subclasses to format for printing.  use concatenation before :<10 format
 

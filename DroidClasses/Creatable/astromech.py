@@ -41,7 +41,7 @@ class Astromech(Utility):
 
     def __str__(self):
         """String method"""
-        return f"{super().__str__()} {self.navigation} {self.number_of_ships}"
+        return f"{super().__str__()}\n Navigation: {self.navigation:<5} Number of Ships: {self.number_of_ships:<5}"
 
     def calculate_total_cost(self):
         """calculate total cost method"""

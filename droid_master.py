@@ -39,6 +39,7 @@ class DroidMaster:
         return droid_type_names
 
     def format_name_to_path(self, droid_name, droid_directory_path):
+        """Takes droid name and directory path and returns droid file path"""
         file_name = droid_name.lower()
         path_name = droid_directory_path.replace("\\", ".")
         return f"{path_name}.{file_name}"
@@ -59,7 +60,7 @@ class DroidMaster:
                 my_str = str(parameters)
                 param_name, param_type = my_str.split(": ")
                 droid_constructor_parameters.update({param_name: param_type})
-        print(droid_constructor_parameters)
+
         return droid_constructor_parameters
 
     def import_module_and_create_class_object(
