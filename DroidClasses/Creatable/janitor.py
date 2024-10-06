@@ -36,9 +36,7 @@ class Janitor(Utility):
 
     def __str__(self):
         """String Method"""
-        return (
-            f"{super().__str__()}\n Broom: {self.broom:<10} Vacuum: {self.vacuum:<10}"
-        )
+        return f"{super().__str__()}\n  {'Broom: ' + str(self.broom):<20} {'Vacuum: ' + str(self.vacuum):<20}"
 
     def calculate_total_cost(self):
         """Calculate total cost by droid type and options"""

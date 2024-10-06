@@ -36,7 +36,7 @@ class Utility(Droid):
 
     def __str__(self):
         """String Method"""
-        return f"{super().__str__()}\n {'Toolbox: ' + str(self.toolbox):<15} {'Computer: ' + str(self.computer_connection):<15} {'Scanner: ' + str(self.scanner):<15}"
+        return f"{super().__str__()}\n  {'Toolbox: ' + str(self.toolbox):<20} {'Computer: ' + str(self.computer_connection):<20} {'Scanner: ' + str(self.scanner):<20}"
 
     def calculate_total_cost(self):
         """Calculate Total Cost Method by options and droid type"""

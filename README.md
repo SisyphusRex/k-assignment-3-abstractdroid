@@ -170,6 +170,14 @@ https://docs.python.org/3/library/inspect.html
 https://www.geeksforgeeks.org/string-capitalize-python/
     capitalize() method
 
+https://stackoverflow.com/questions/59986625/how-to-simulate-two-consecutive-console-inputs-with-pytest-monkeypatch
+    pytest series of user inputs
+
+https://stackoverflow.com/questions/51700960/runtimeerror-generator-raised-stopiteration-every-time-i-try-to-run-app
+    catch StopIteration for pytest
+
+https://stackoverflow.com/questions/35998992/py-test-command-not-found-but-library-is-installed
+    run pytest from terminal
 ## Known Problems, Issues, And/Or Errors in the Program
 None as of 10/1/24
 

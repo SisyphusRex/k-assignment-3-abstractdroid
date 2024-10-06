@@ -1,11 +1,10 @@
-"""This file holds the droid master class"""
+"""This file holds the droid master class, a utility class"""
 
 # Walter Podewil
 # CIS 226
 # October 2, 2024
 
 # System Imports
-import os
 import pathlib
 import importlib.util
 import importlib

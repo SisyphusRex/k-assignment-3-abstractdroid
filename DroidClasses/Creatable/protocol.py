@@ -28,7 +28,7 @@ class Protocol(Droid):
 
     def __str__(self):
         """String method"""
-        return f"{super().__str__()}\n Languages: {self.number_of_languages:<5}"
+        return f"{super().__str__()}\n  {'Languages: ' + str(self.number_of_languages):<20}"
 
     @override
     def calculate_total_cost(self):
