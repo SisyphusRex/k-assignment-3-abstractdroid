@@ -15,7 +15,10 @@ from droid_collection import DroidCollection
 class UserInterface:
     """User Interface Class"""
 
-    # Only returns strings!!!
+    # For uniformity and better interaction with other classes, this class is only concerned with three things:
+    # 1. Printing to terminal
+    # 2. getting user console input
+    # 3. returning strings AND ONLY strings in its methods that have returns
 
     # Main menu and Droid Type are lists because I want the ability to handle more options in the future
     MAIN_MENU = ["Add New Droid", "Print Collection", "Exit"]
@@ -86,6 +89,7 @@ class UserInterface:
 
     def __validate_list_input(self, input1: str, choice_list: list) -> bool:
         """Method to validate input when choices are a list"""
+        # also known as a qualitative validator
         try:
             input_int = int(input1)
         except ValueError:
@@ -98,6 +102,7 @@ class UserInterface:
             return True
 
     def __validate_quanity_input(self, input1: str) -> bool:
+        """Quantity input validator"""
         try:
             input_int = int(input1)
         except ValueError:
@@ -110,6 +115,7 @@ class UserInterface:
             return True
 
     def __validate_yes_no_input(self, input1: str) -> bool:
+        """Bool input validator"""
         try:
             input_int = int(input1)
         except ValueError:

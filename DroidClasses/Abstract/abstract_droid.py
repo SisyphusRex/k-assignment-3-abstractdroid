@@ -1,16 +1,15 @@
 """Abstract Droid module"""
 
-#Walter Podewil
-#CIS 226
-#October 1, 2024
+# Walter Podewil
+# CIS 226
+# October 1, 2024
 
-#System Imports
+# System Imports
 from abc import ABC, abstractmethod
 
-#First Party Imports
+# First Party Imports
 
-#Third Party Imports
-
+# Third Party Imports
 
 
 class AbstractDroid(ABC):

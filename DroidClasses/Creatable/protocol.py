@@ -8,7 +8,7 @@
 from typing import override
 
 # First Party Imports
-from DroidClasses.ParentOnly.droid import Droid
+from DroidClasses.Abstract.droid import Droid
 
 # Third Party Imports
 

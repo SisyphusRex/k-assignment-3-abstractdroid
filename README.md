@@ -183,3 +183,4 @@ None as of 10/1/24
 
 10/5/2024: Need to reformat __str__ methods in droid and subclasses to format for printing.  use concatenation before :<10 format
 
+10/7/2024: Need to write method or enforce standard on dicts of qualities like color or material

@@ -8,7 +8,7 @@
 from abc import ABC
 
 # First Party Imports
-from DroidClasses.ParentOnly.abstract_droid import AbstractDroid
+from DroidClasses.Abstract.abstract_droid import AbstractDroid
 
 # Third Party Imports
 
@@ -19,8 +19,16 @@ from DroidClasses.ParentOnly.abstract_droid import AbstractDroid
 class Droid(AbstractDroid, ABC):
     """Parent class to Protocol and Utility"""
 
-    COLOR_COST: dict = {"Red": 1.00, "Yellow": 1.50, "Blue": 2.00, "Green": 2.50}
-    MATERIAL_COST: dict = {
+    # my program.py and utility.py rely on all options that require the user to pick from a list
+    # of options be described as a constant dict with option name and cost
+    # the dict itself must conform to this name scheme <PARAMETER>_QUALITATIVE_DICT
+    COLOR_QUALITATIVE_DICT: dict = {
+        "Red": 1.00,
+        "Yellow": 1.50,
+        "Blue": 2.00,
+        "Green": 2.50,
+    }
+    MATERIAL_QUALITATIVE_DICT: dict = {
         "Aluminum": 1.25,
         "Steel": 1.50,
         "Titanium": 1.75,
@@ -60,9 +68,9 @@ class Droid(AbstractDroid, ABC):
     @property
     def _material_cost(self) -> float:
         """Gets Material cost value"""
-        return self.MATERIAL_COST[self.material]
+        return self.MATERIAL_QUALITATIVE_DICT[self.material]
 
     @property
     def _color_cost(self) -> float:
         """Gets Color Cost value"""
-        return self.COLOR_COST[self.color]
+        return self.COLOR_QUALITATIVE_DICT[self.color]
