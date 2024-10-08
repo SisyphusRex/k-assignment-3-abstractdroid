@@ -43,4 +43,5 @@ def test_astromech_price(monkeypatch):
         # access the created droids total_cost attribute and compare to manually calculated total
         assert main().my_collection.collection[0].total_cost == 17.75
     except StopIteration:
+        #this exception is needed because my iterator is not continuous, but the program can be
         pass

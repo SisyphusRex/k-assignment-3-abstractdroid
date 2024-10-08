@@ -9,6 +9,7 @@ import pathlib
 import importlib.util
 import importlib
 import inspect
+import sys
 
 # First Party Imports
 
@@ -106,8 +107,13 @@ class Utilities:
         self, droid_object: object, parameter_name: str, dict_suffix: str
     ) -> dict:
         """Returns the dict on which parameter is based"""
-        options_dict = getattr(
-            droid_object,
-            self.__get_dict_name_from_parameter(parameter_name, dict_suffix),
-        )
+        try:
+            options_dict = getattr(
+                droid_object,
+                self.__get_dict_name_from_parameter(parameter_name, dict_suffix),
+            )
+        except AttributeError:
+            sys.exit(f"The dict for this qualititative attribute -{parameter_name}- does not exist or is misspelled.  Examine the droid module.\n"
+                     "The dict in the class must have the DICT_SUFFIX to be read.\n"
+                     f"You are missing: {parameter_name.upper()}{dict_suffix} in the module.")
         return options_dict
