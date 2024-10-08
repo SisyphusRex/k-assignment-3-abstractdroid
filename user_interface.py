@@ -5,10 +5,10 @@
 # October 1, 2024
 
 # System Imports
-
+import re
 # First Party Imports
 from droid_collection import DroidCollection
-from colors import Style
+from colors import print_red
 # Third Party Imports
 
 
@@ -50,7 +50,31 @@ class UserInterface:
 
     def print_collection(self, collection: DroidCollection) -> None:
         """Prints Droid Collection"""
+        #TODO: I want to be able to print the color of he droid
+        #in that color.  I will have to pull out the color (red, blue, etc.)
+        #from the larger string using regular expressions
+        #and then use a print method imported from colors.py
+
+        #NOTE: I will not implement printing in color for the color.
+        #This would involve me hardcoding the color options to this class
+        #rather than searching the modules dynamically for qualitative
+        #option dicts
+
+        #NOTE: I might implement the regex search, just for practice
         for droid in collection.collection:
+            #droid_color_broken is the droid string split into a list
+            #based on re.split by color
+            #This will let us print the color string in its color
+
+            #this pattern is needed to search for each color
+            # pattern = r"Red|Yellow|Blue|Green"
+            # droid_color_broken = re.split((pattern), str(droid))
+            # print(droid_color_broken)
+            # for string in droid_color_broken:
+            #     if string == "Red":
+            #         print_red("Red")
+            #     else:
+            #         print(string)
             print(droid)
         print()
 
@@ -93,12 +117,12 @@ class UserInterface:
         try:
             input_int = int(input1)
         except ValueError:
-            print("Input must be an int.")
+            print_red("Input must be an int.")
             return True
         if input_int in range(len(choice_list)):
             return False
         else:
-            print("Choice not in menu.")
+            print_red("Choice not in menu.")
             return True
 
     def __validate_quanity_input(self, input1: str) -> bool:
@@ -106,12 +130,12 @@ class UserInterface:
         try:
             input_int = int(input1)
         except ValueError:
-            print("Input must be an int.")
+            print_red("Input must be an int.")
             return True
         if 0 <= input_int <= 25:
             return False
         else:
-            print("Quantity must be between 0 and 25, inclusive")
+            print_red("Quantity must be between 0 and 25, inclusive")
             return True
 
     def __validate_yes_no_input(self, input1: str) -> bool:
@@ -119,10 +143,10 @@ class UserInterface:
         try:
             input_int = int(input1)
         except ValueError:
-            print("Input must be an int.")
+            print_red("Input must be an int.")
             return True
         if 0 <= input_int <= 1:
             return False
         else:
-            print("Input must be 0 or 1")
+            print_red("Input must be 0 or 1")
             return True

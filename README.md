@@ -186,3 +186,6 @@ None as of 10/1/24
 10/7/2024: Need to write method or enforce standard on dicts of qualities like color or material
 
 10/8/2024: Need to add printing in color functionality to user_interface.py
+    NOTE: I want to print the droids color options in that color, but when the droid_collection is printed out, the color is part of a string.  I will need to identify the color using regular expressions.
+
+    NOTE: On second thought, printing the colors in their color would involve me hardcoding the colors to the program rather than dynamically searching for the qualitative attribute dict in the modules.

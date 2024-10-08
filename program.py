@@ -108,7 +108,7 @@ def main(*args):
                         # if key == my_utility.find_name_of_new_qualitative_lists()
                         #   choice = my_ui.print_choice_menu(droid_object.<my_utility.find_name_of_new_qualitative_lists()>)
 
-                        #ANSWER: I went another way!  Rather than scour each module or class for its dictionaries or lists,
+                        #NOTE: I went another way!  Rather than scour each module or class for its dictionaries or lists,
                         # I rely on each dict having the QUALITATIVE_DICT_SUFFIX.  Now, I only have to find the QUALITATIVE_DICT_SUFFIX if
                         # I need to because the parameter type is a string.  Otherwise, I don't look for it.
                         qualitative_dict = my_utility.get_dict_from_str(

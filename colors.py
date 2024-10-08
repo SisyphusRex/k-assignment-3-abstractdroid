@@ -44,3 +44,8 @@ class Style:
         value = super().__getattribute__(name)
         print(value, end="")
         return value
+
+def print_red(message):
+    Style.RED
+    print(message)
+    Style.RESET
