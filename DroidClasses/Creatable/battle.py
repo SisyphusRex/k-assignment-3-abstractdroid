@@ -18,7 +18,7 @@ DROID_TYPE_NAME = "Battle"
 class Battle(Droid):
     """Class for Battle Droid"""
 
-    ARMORR_QUALITATIVE_DICT: dict = {
+    ARMOR_QUALITATIVE_DICT: dict = {
         "PLATE": 0.25,
         "CHAIN": 0.50,
         "SCALE": 0.75,

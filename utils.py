@@ -1,4 +1,4 @@
-"""This file holds the droid master class, a utility class"""
+"""This file holds the utility module"""
 
 # Walter Podewil
 # CIS 226
@@ -19,22 +19,21 @@ import sys
 class Utilities:
     """This Class contains methods for dynamically finding droid modules and parameters in a directory"""
 
-    def __init__(self):
-        """Constructor"""
-        self.droid_type_names = []
-
     def find_droid_types(self, input_path: str) -> list:
         """Finds droid files and adds droid names to list"""
         droid_type_names = []
+        # pathlib.Path().glob() returns a list of files with .py extension in input_path directory
         for source_file in pathlib.Path(input_path).glob("*.py"):
-            # .stem returns filenam without file extension
+            # .stem returns filename without file extension
             name = source_file.stem
             # .spec_from_file_location creates a modulespec object of the file
+            # a modulespec object contains information about a module used to load it
             spec = importlib.util.spec_from_file_location(name, source_file)
             # .module_from_spec creates a module based on the spec created
             mod = importlib.util.module_from_spec(spec)
             # .loader.exec_module executes the module in own namespace
             spec.loader.exec_module(mod)
+            # now that the module is loaded, we can check the module for the attribute we are looking for
             if hasattr(mod, "DROID_TYPE_NAME"):
                 droid_type_names.append(getattr(mod, "DROID_TYPE_NAME"))
         return droid_type_names
@@ -68,9 +67,12 @@ class Utilities:
         self, droid_name: str, droid_directory_path: str
     ) -> object:
         """This method imports the module and creates an object of the class"""
+
+        # first we import the module from the file
         droid_module = importlib.import_module(
             self.format_name_to_path(droid_name, droid_directory_path)
         )
+        # then we get an object of the class within the module using the module and class name
         class_object = getattr(droid_module, droid_name.capitalize())
         return class_object
 
@@ -99,7 +101,7 @@ class Utilities:
     def __get_dict_name_from_parameter(
         self, parameter_name: str, dict_suffix: str
     ) -> str:
-        """adds dict suffix to paramter name"""
+        """adds dict suffix to paramter name and returns dict name"""
         dict_name = parameter_name.upper() + dict_suffix
         return dict_name
 
@@ -113,7 +115,9 @@ class Utilities:
                 self.__get_dict_name_from_parameter(parameter_name, dict_suffix),
             )
         except AttributeError:
-            sys.exit(f"The dict for this qualititative attribute -{parameter_name}- does not exist or is misspelled.  Examine the droid module.\n"
-                     "The dict in the class must have the DICT_SUFFIX to be read.\n"
-                     f"You are missing: {parameter_name.upper()}{dict_suffix} in the module.")
+            sys.exit(
+                f"The dict for this qualititative attribute -{parameter_name}- does not exist or is misspelled.  Examine the droid module.\n"
+                "The dict in the class must have the DICT_SUFFIX to be read.\n"
+                f"You are missing: {parameter_name.upper()}{dict_suffix} in the module."
+            )
         return options_dict

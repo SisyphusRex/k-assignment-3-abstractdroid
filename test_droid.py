@@ -35,7 +35,8 @@ def test_astromech_price(monkeypatch):
     my_responses = iter(simulated_responses)
 
     # use monkeypatch to replace input() with lambda function that returns next response in iterator
-    monkeypatch.setattr(builtins, "input", lambda: next(my_responses))
+    # lambda message is necessary because some inputs pass an argument
+    monkeypatch.setattr(builtins, "input", lambda message: next(my_responses))
 
     # since the program will ask for inputs after we have exhausted our simulated_responses, we must catch the error
     try:
@@ -43,5 +44,5 @@ def test_astromech_price(monkeypatch):
         # access the created droids total_cost attribute and compare to manually calculated total
         assert main().my_collection.collection[0].total_cost == 17.75
     except StopIteration:
-        #this exception is needed because my iterator is not continuous, but the program can be
+        # this exception is needed because my iterator is not continuous, but the program can be
         pass
