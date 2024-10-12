@@ -178,6 +178,9 @@ https://stackoverflow.com/questions/51700960/runtimeerror-generator-raised-stopi
 
 https://stackoverflow.com/questions/35998992/py-test-command-not-found-but-library-is-installed
     run pytest from terminal
+
+https://stackoverflow.com/questions/12813633/how-to-assert-two-list-contain-the-same-elements-in-python
+    assert whether lists are equal in different ways
 ## Known Problems, Issues, And/Or Errors in the Program
 None as of 10/1/24
 
@@ -189,3 +192,5 @@ None as of 10/1/24
     NOTE: I want to print the droids color options in that color, but when the droid_collection is printed out, the color is part of a string.  I will need to identify the color using regular expressions.
 
     NOTE: On second thought, printing the colors in their color would involve me hardcoding the colors to the program rather than dynamically searching for the qualitative attribute dict in the modules.
+
+10/12/2024: Everything works, yet I am still not using regex to search every string for color and print in that color, perhaps get to it later
