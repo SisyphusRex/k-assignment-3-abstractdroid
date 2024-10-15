@@ -1,32 +1,34 @@
 """Console Color Changer"""
 
+# Walter Podewil
+# CIS 226
+# 10/8/2024
 
-#Walter Podewil
-#CIS 226
-#10/8/2024
+# copied from David Barnes colors.py file
 
-#copied from David Barnes colors.py file
-
-#System Imports
+# System Imports
 import os
 
-#First Party Imports
+# First Party Imports
 
-#Third Party Imports
+# Third Party Imports
 
 
-#10/8/2024: This module is not implemented in my user_interface.py yet because printing is not simple because of the
-#dynamic nature of the program.
+# 10/8/2024: This module is not implemented in my user_interface.py yet because printing is not simple because of the
+# dynamic nature of the program.
 
 os.system("")
+
 
 def singleton(cls):
     """Singleton functioin"""
     return cls()
 
+
 @singleton
 class Style:
     """Contains color constants"""
+
     BLACK = "\033[30m"
     RED = "\033[31m"
     GREEN = "\033[32m"
@@ -45,7 +47,9 @@ class Style:
         print(value, end="")
         return value
 
+
 def print_red(message):
+    """method to print in red"""
     Style.RED
     print(message)
     Style.RESET
