@@ -1,10 +1,6 @@
 """Console Color Changer"""
 
-# Walter Podewil
-# CIS 226
-# 10/8/2024
 
-# copied from David Barnes colors.py file
 
 # System Imports
 import os
