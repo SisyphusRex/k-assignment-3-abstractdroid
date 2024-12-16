@@ -2,9 +2,7 @@
 
 # this requires pip install pytest
 
-# Walter Podewil
-# October 5, 2024
-# CIS 226
+
 
 # System Imports
 import builtins
