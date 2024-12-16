@@ -1,8 +1,6 @@
 """This file holds the utility module"""
 
-# Walter Podewil
-# CIS 226
-# October 2, 2024
+
 
 # System Imports
 import pathlib
