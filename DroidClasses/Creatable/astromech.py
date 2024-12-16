@@ -1,8 +1,6 @@
 """Astromech Droid Class File"""
 
-# Walter Podewil
-# CIS 226
-# October 1, 2024
+
 
 # System Imports
 from typing import override
