@@ -1,8 +1,6 @@
 """File for battle droid class"""
 
-# Walter Podewil
-# CIS 226
-# October 5, 2024
+
 
 # System Imports
 
